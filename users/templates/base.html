@@ -3,10 +3,62 @@
 <head>
 	<!-- Zorunlu meta tags -->
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, 
+	initial-scale=1, shrink-to-fit=no">
+	<!-- Bootstrap CSS -->
+	<link rel='stylesheet' href="{% static 'css/bootstrap.min.css' %}">
 	<title>Haber Sitesi Uygulaması</title>
 </head>
 <body>
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<div class="container-fluid">
+		  <a class="navbar-brand" href="#"></a>
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
+
+			<ul class="navbar-nav mb-2 mb-lg-0">
+			  <li class="nav-item">
+				<a class="nav-link active" aria-current="page"  href="{% url 'home' %}">Haber Sitesi</a>
+			  </li>
+			</ul>
+
+			{% if user.is_authenticated %}
+
+			<div class="btn-group">
+				<button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+					{{ user.username }}
+				</button>
+				<ul class="dropdown-menu dropdown-menu-end">
+				  <li><a class="dropdown-item" href="{% url 'password_change'%}">Parola Değiştir</a></li>
+				  <li><a class="dropdown-item" href="{% url 'logout' %}">Çıkış</a></li>
+				</ul>
+			  </div>
+
+			{% else %}
+
+			<ul class="navbar-nav ">
+				<li><a class="nav-link active" href="{% url 'signup' %}">Kaydol</a></li>
+				<li><a class="nav-link active" href="{% url 'login' %}">Giriş</a></li>
+			  </ul>
+
+			{% endif %}
+
+		  </div>
+		</div>
+	  </nav>
+	<div class="container">
+
 		{% block content %}
 		{% endblock content %}
+
+	</div>
+	<script src = "{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>
+
+
+
