@@ -38,10 +38,31 @@
 					</li>
 				</ul>
 				{% else %}
-				<ul class="navbar-nav ">
-					<li><a class="nav-link active" href="{% url 'signup' %}">Kaydol</a></li>
-					<li><a class="nav-link active" href="{% url 'login' %}">Giriş</a></li>
+
+				<ul class="navbar-nav">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							Kullanıcı İşlemleri
+						</a>
+						<ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+							<li><a class="dropdown-item" href="{% url 'signup' %}">Kaydol</a></li>
+							<li><a class="dropdown-item" href="{% url 'login' %}">Giriş</a></li>
+							<li><a class="dropdown-item" href="{% url 'password_reset' %}">Parola Sıfırla</a></li>
+						</ul>
+					</li>
 				</ul>
+
+
+				{% comment %} <div class="btn-group">
+					<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					  Kullanıcı İşlemleri
+					</button>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+						<a class="dropdown-item" href="{% url 'signup' %}">Kaydol</a>
+						<a class="dropdown-item" href="{% url 'login' %}">Giriş</a>
+						<a class="dropdown-item" href="{% url 'password_reset' %}">Parola Sıfırla</a>
+					</div>
+				</div>  {% endcomment %}
 				{% endif %}
 			</div>
 		</div>

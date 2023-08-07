@@ -134,3 +134,11 @@ AUTH_USER_MODEL = 'users.CustomUser'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 CRISPY_TEMPLATE_PACK='bootstrap3'
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'mt-nereus.guzelhosting.com'
+EMAIL_PORT = 587
+
+EMAIL_HOST_USER = '98.165.247.104.in-addr.arpa.'
+EMAIL_HOST_PASSWORD = 'mt-nereus.guzelhosting.com.'
+EMAIL_USE_TLS = True
