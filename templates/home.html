@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block title %} Home {% endblock title %} 
+{% block content %} {% if user.is_authenticated %} Merhaba {{ user.username }}
+<p><a href="{% url 'logout' %}">Çıkış</a></p>
+{% else %}
+<p>Giriş yapılmadı!</p>
+<p><a href="{% url 'login' %}">Giriş</a></p>
+<p><a href="{% url 'signup' %}">Kayıt Ol</a></p>
+<script>
+    // sayfa yüklenince uyarı mesajı göster
+    alert("Giriş yapmadınız!");
+</script>
+{% endif %} {% endblock content %}

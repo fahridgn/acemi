@@ -1,0 +1,19 @@
+<!-- templates/motto_list.html -->
+{% extends 'base.html' %} {% block title %}Motto List{% endblock title %}
+{% block content %}
+<div ng-app="myApp" ng-controller="myCtrl">
+  <ul>
+    <li ng-repeat="motto in mottos  track by $index">
+      {% for motto in mottos %}
+      <h2>{{ motto.title }}</h2>
+      <p>{{ motto.content }}</p>
+      <p>Author: {{ motto.author.username }}</p>
+      <p>Created at: {{ motto.created_at }}</p>
+      <button ng-click="editMotto(motto.id)">Edit</button>
+      <button ng-click="deleteMotto(motto.id)">Delete</button>
+      {% endfor %}
+    </li>
+  </ul>
+</div>
+
+{% endblock content %}

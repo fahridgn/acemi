@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'mottoapp.apps.MottoappConfig',
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
     'django.contrib.admin',
